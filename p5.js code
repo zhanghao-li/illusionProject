@@ -1,0 +1,38 @@
+function setup() {
+  createCanvas(400, 400);
+}
+function draw() {
+  background(220);
+  noStroke();
+  for (let i = 0; i < 2; i++) {
+    for (let j = 0; j < 2; j++) {
+      drawShape(i * 200, j * 200);
+    }}}
+function drawShape(offsetX, offsetY) {
+  let C = [10];
+  for (let c of C) {
+  let A = [0,c*2,c*4];
+  for (let a of A) {
+  let B = [100];
+  for (let b of B) {  
+  fill(0)
+  triangle(offsetX+a,offsetY+a,offsetX+b-a,offsetY+a,offsetX+a,offsetY+b-a);
+  triangle(offsetX+b+a,offsetY+a,offsetX+b*2-a,offsetY+b-a,offsetX+b+a,offsetY+b-a);
+  triangle(offsetX+a,offsetY+b+a,offsetX+b-a,offsetY+b+a,offsetX+b-a,offsetY+b*2-a);
+  triangle(offsetX+b*2-a,offsetY+b*2-a,offsetX+b*2-a,offsetY+b+a,offsetX+b+a,offsetY+b*2-a);
+  fill(255)
+  triangle(offsetX+a+c,offsetY+a+c,offsetX+b-c-a,offsetY+a+c,offsetX+a+c,offsetY+b-c-a);
+  triangle(offsetX+b+c+a,offsetY+a+c,offsetX+b*2-c-a,offsetY+b-c-a,offsetX+b+c+a,offsetY+b-c-a);
+  triangle(offsetX+a+c,offsetY+b+c+a,offsetX+b-c-a,offsetY+b+c+a,offsetX+b-c-a,offsetY+b*2-c-a);
+  triangle(offsetX+b+a,offsetY+b+a,offsetX+b*2-a,offsetY+b+a,offsetX+b+a,offsetY+b*2-a);
+  fill(255)
+  triangle(offsetX+b-a,offsetY+b-a,offsetX+b-a,offsetY+a,offsetX+a,offsetY+b-a);
+  triangle(offsetX+b*2-a,offsetY+b-a,offsetX+b*2-a,offsetY+a,offsetX+b+a,offsetY+a);
+  triangle(offsetX+b-a,offsetY+b*2-a,offsetX+a,offsetY+b+a,offsetX+a,offsetY+b*2-a); 
+  triangle(offsetX+b*2-c-a,offsetY+b*2-c-a,offsetX+b*2-c-a,offsetY+b+c+a,offsetX+b+c+a,offsetY+b*2-c-a);
+  fill(0)
+  triangle(offsetX+b-c-a,offsetY+b-c-a,offsetX+b-c-a,offsetY+a+c,offsetX+a+c,offsetY+b-c-a);
+  triangle(offsetX+b*2-c-a,offsetY+b-c-a,offsetX+b*2-c-a,offsetY+a+c,offsetX+b+c+a,offsetY+a+c);
+  triangle(offsetX+b-c-a,offsetY+b*2-c-a,offsetX+a+c,offsetY+b+c+a,offsetX+a+c,offsetY+b*2-c-a);
+  triangle(offsetX+b+c+a,offsetY+b+c+a,offsetX+b*2-c-a,offsetY+b+c+a,offsetX+b+c+a,offsetY+b*2-c-a);
+}}}}
