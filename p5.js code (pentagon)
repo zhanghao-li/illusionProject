@@ -1,0 +1,57 @@
+function setup() {
+  createCanvas(600, 600, WEBGL);
+  background(255);
+  noStroke();
+
+  let maxDiameter = 177+17.7;
+  let numCircles = 11;
+  let step = maxDiameter / numCircles;
+
+  let radius = 150;
+  let offsetAngle = -HALF_PI;
+
+  let angles = [offsetAngle, offsetAngle + TWO_PI / 5, offsetAngle + 2 * TWO_PI / 5, offsetAngle + 3 * TWO_PI / 5, offsetAngle + 4 * TWO_PI / 5];
+  
+  for (let i = 0; i < numCircles; i++) {
+    let currentColor;
+
+    if (i % 2 === 0) {
+      currentColor = color(0);
+    } else {
+      currentColor = color(255);
+    }
+    
+    fill(currentColor);
+    let diameter = maxDiameter - (i * step);
+    circle(0, 0, diameter);
+    if (i % 2 === 0) {
+      currentColor = color(0);
+    } else {
+      currentColor = color(255);
+    }
+    
+    fill(currentColor);
+    
+    for (let j = 0; j < 5; j++) {
+      let x = radius * cos(angles[j]);
+      let y = radius * sin(angles[j]);
+      circle(x, y, diameter);
+    }
+
+    for (let j = 0; j < 5; j++) {
+      let x = radius * cos(angles[j]);
+      let y = radius * sin(angles[j]);
+      
+      if (currentColor.levels[0] === 0) {
+        fill(255);
+      } else {
+        fill(0);
+      }
+
+      let startAngle = angles[j] - radians(54)+PI;
+      let endAngle = angles[j] + radians(54)+PI;
+      
+      arc(x, y, diameter, diameter, startAngle, endAngle);
+    }
+  }
+}
