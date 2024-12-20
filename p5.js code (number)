@@ -54,6 +54,5 @@ triangle(offsetX+a,offsetY+a,offsetX+b-a,offsetY+a,offsetX+a,offsetY+b-a);
 }
 
 function mousePressed() {
-  // 每次點擊畫面時更改三角形大小的索引
   currentSizeIndex = (currentSizeIndex + 1) % sizes.length; // 循環選擇大小
   }
